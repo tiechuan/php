@@ -1,0 +1,22 @@
+#!/bin/bash
+set -e
+
+echo "Apache Environment: "$APACHE_ENVIRONMENT
+
+# copy vhost
+rm -f /etc/httpd/vhost/*
+cp /root/vhost/$APACHE_ENVIRONMENT/* /etc/apache2/vhost/
+
+# copy ssmtp config
+cp /root/ssmtp/$APACHE_ENVIRONMENT/* /etc/ssmtp/
+
+# copy newrelic config
+cp /root/newrelic/$APACHE_ENVIRONMENT/* /usr/local/etc/php/conf.d/
+
+# copy php.ini
+cp /root/php/$APACHE_ENVIRONMENT/* /usr/local/etc/php/
+
+# copy php site config
+cp /root/config/$APACHE_ENVIRONMENT/* /usr/local/lib/php/
+
+apache2-foreground

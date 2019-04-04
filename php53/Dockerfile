@@ -1,5 +1,5 @@
 FROM debian:jessie
-LABEL MAINTAINER="tiechuan.wang"
+LABEL MAINTAINER="tiechuan.wang@gmail.com"
 
 # persistent / runtime deps
 RUN apt-get update && apt-get install -y --no-install-recommends \
